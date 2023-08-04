@@ -3,6 +3,7 @@ import "./destinationsList.scss";
 import "./destinationsList.responsive.scss";
 import Header from "../Header/Header";
 import planets from "./PlanetsInfo";
+import { motion, AnimatePresence } from "framer-motion";
 export const DestinationsList = () => {
   const [planet, setPlanet] = useState(0);
   const [active, setActive] = useState("Moon");
@@ -16,9 +17,19 @@ export const DestinationsList = () => {
               <span>01</span> Pick your destination
             </h2>
           </div>
-          <div className="destinations__img">
-            <img src={planets[planet].image} alt="" />
-          </div>
+          <AnimatePresence>
+            <div className="destinations__img">
+              <motion.img
+                transition={{ duration: 0.5 }}
+                key={planets[planet].name}
+                initial={{ scale: 1.3, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ display: "none", scale: 0 }}
+                src={planets[planet].image}
+                alt={planets[planet].name}
+              />
+            </div>
+          </AnimatePresence>
         </div>
         <div className="destinations__right">
           <div className="destinatios__choices">
@@ -46,9 +57,24 @@ export const DestinationsList = () => {
           <div className="destinations__name">
             <h3>{planets[planet].name.toUpperCase()}</h3>
           </div>
-          <div className="destinations__desc">
-            <p>{planets[planet].description}</p>
-          </div>
+          <AnimatePresence custom={"wait"}>
+            <div className="destinations__desc">
+              <motion.p
+                key={planets[planet].name}
+                initial={{ x: -200, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{
+                  x: 200,
+                  opacity: 1,
+                }}
+                transition={{
+                  duration: 0.3,
+                }}
+              >
+                {planets[planet].description}
+              </motion.p>
+            </div>
+          </AnimatePresence>
           <div className="destinations__values">
             <div className="destinations__value">
               <p>AVG. DISTANCE</p>
@@ -67,4 +93,4 @@ export const DestinationsList = () => {
 
 export default DestinationsList;
 
-// ДОБАВИТЬ АНИМАЦИЮ И ВОЗМОЖНО СДЕЛАТЬ ДЕКОМПОЗИЦИЮ ДО ДЕСТИНАТИОН
+// ДОБАВИТЬ АНИМАЦИЮ

@@ -5,12 +5,9 @@ import Header from "../Header/Header";
 import { Link } from "react-router-dom";
 
 export const Home = () => {
-  function onBlur(state) {
-    return state(false);
-  }
   return (
     <section className="home">
-      <Header onBlur={onBlur} />
+      <Header />
       <div className="home__content">
         <div className="home__text">
           <div className="home__subtitle">
