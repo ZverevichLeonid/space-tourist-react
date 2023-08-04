@@ -70,12 +70,15 @@
   grid-template-columns: repeat(2, 445px);
   column-gap: 157px;
   justify-content: space-between;
-  align-items: flex-end;
   padding-top: 76px;
   padding-left: 165px;
   padding-right: 165px;
 }
-
+.destinations__right {
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+}
 .destinations__img {
   img {
     max-width: 445px;
