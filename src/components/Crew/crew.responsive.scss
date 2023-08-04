@@ -1,0 +1,71 @@
+@media (max-width: 1250px) {
+  .crew__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 50px;
+    gap: 75px;
+  }
+  .crew__title {
+    margin-bottom: 60px;
+  }
+  .crew__bio {
+    max-width: none;
+  }
+  .crew__left {
+    max-width: none;
+  }
+  .crew__right {
+    align-self: center;
+  }
+  .crew__inputs {
+    padding-top: 20px;
+  }
+  .crew__img {
+    &::after {
+      position: absolute;
+      content: "";
+      width: 0;
+      height: 0;
+      border: none;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .crew {
+    background: url(../../assets/crew/background-crew-tablet.jpg) no-repeat;
+    background-size: cover;
+  }
+  .crew__content {
+    padding: 45px 50px 0 50px;
+  }
+  .crew__title {
+    font-size: 20px;
+  }
+  .crew__role {
+    font-size: 24px;
+  }
+  .crew__name {
+    font-size: 40px;
+  }
+  .crew__bio {
+    font-size: 16px;
+  }
+}
+@media (max-width: 460px) {
+  .crew__content {
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .crew__title {
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 375px) {
+  .crew {
+    background: url(../../assets/crew/background-crew-mobile.jpg) no-repeat;
+    background-size: cover;
+  }
+}

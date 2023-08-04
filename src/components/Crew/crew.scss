@@ -1,0 +1,104 @@
+.crew {
+  background: url(../../assets/crew/background-crew-desktop.jpg) no-repeat;
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+}
+.crew__content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: minmax(600px, 700px);
+  justify-content: space-between;
+  gap: 50px;
+  padding: 76px 165px 0 165px;
+}
+.crew__title {
+  font-family: var(--ff-barlow-condesed);
+  font-size: var(--fs-heading-five);
+  font-weight: var(--fw-regular);
+  color: var(--white-cl);
+  letter-spacing: var(--ls-heading-five);
+  text-transform: uppercase;
+  margin-bottom: 154px;
+  span {
+    opacity: 0.25;
+    margin-right: 10px;
+  }
+}
+.crew__role {
+  color: var(--white-cl);
+  font-family: var(--ff-bellefair);
+  font-size: var(--fs-heading-four);
+  font-weight: var(--fw-regular);
+  text-transform: uppercase;
+  opacity: 0.5042492151260376;
+  margin-bottom: 15px;
+}
+.crew__name {
+  color: var(--white-cl);
+  font-family: var(--ff-bellefair);
+  font-size: var(--fs-heading-three);
+  font-weight: var(--fw-regular);
+  text-transform: uppercase;
+  margin-bottom: 27px;
+}
+.crew__bio {
+  color: var(--lavander-cl);
+  font-family: var(--ff-barlow);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  max-width: 460px;
+}
+
+.crew__left {
+  max-width: 488px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.crew__right {
+  justify-self: flex-end;
+  align-self: flex-end;
+}
+.crew__img {
+  max-width: 550px;
+  max-height: 700px;
+  position: relative;
+  &::after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    right: 50%;
+    transform: translate(50%, 0);
+    width: 140%;
+    height: 2px;
+    border-bottom: 2px solid rgb(44, 72, 83);
+  }
+}
+.crew__inputs {
+}
+.round {
+  position: relative;
+  cursor: pointer;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    opacity: 0.174362912774086;
+    background: #fff;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  }
+}
+.round + .round {
+  margin-left: 24px;
+}
+
+.round-active {
+  &::before {
+    opacity: 1;
+    background: #fff;
+  }
+}
