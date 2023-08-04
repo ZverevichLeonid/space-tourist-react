@@ -3,11 +3,11 @@ import "./technology.scss";
 import "./technology.responsive.scss";
 import Header from "../Header/Header";
 import technologyList from "./TechnologyInfo";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const Technology = () => {
   const [technology, setTechnology] = useState(0);
   const [active, setActive] = useState("Launch vehicle");
-  console.log(typeof window.innerWidth);
   return (
     <section className="technology">
       <Header />
@@ -38,29 +38,52 @@ export const Technology = () => {
               );
             })}
           </div>
-          <div className="technology__text">
-            <div className="technology__subheading">
-              <p>The terminology...</p>
+          <AnimatePresence>
+            <div className="technology__text">
+              <div className="technology__subheading">
+                <p>The terminology...</p>
+              </div>
+              <div className="technology__name">
+                <motion.h3
+                  key={technologyList[technology].name}
+                  initial={{ scale: 1.3, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ display: "none", scale: 0 }}
+                >
+                  {technologyList[technology].name.toUpperCase()}
+                </motion.h3>
+              </div>
+              <div className="technology__info">
+                <motion.p
+                  key={technologyList[technology].description}
+                  initial={{ scale: 1.3, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ display: "none", scale: 0 }}
+                >
+                  {technologyList[technology].description}
+                </motion.p>
+              </div>
             </div>
-            <div className="technology__name">
-              <h3>{technologyList[technology].name.toUpperCase()}</h3>
-            </div>
-            <div className="technology__info">
-              <p>{technologyList[technology].description}</p>
-            </div>
+          </AnimatePresence>
+        </div>
+
+        <AnimatePresence>
+          <div className="technology__right">
+            <motion.img
+              key={technologyList[technology].name}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="technology__img"
+              src={
+                window.innerWidth > "1355"
+                  ? technologyList[technology].images.portrait
+                  : technologyList[technology].images.landscape
+              }
+              alt={technologyList[technology].name}
+            />
           </div>
-        </div>
-        <div className="technology__right">
-          <img
-            className="technology__img"
-            src={
-              window.innerWidth > "1355"
-                ? technologyList[technology].images.portrait
-                : technologyList[technology].images.landscape
-            }
-            alt={technologyList[technology].name}
-          />
-        </div>
+        </AnimatePresence>
       </div>
     </section>
   );

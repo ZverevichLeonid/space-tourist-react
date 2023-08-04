@@ -31,6 +31,8 @@ export const Crew = () => {
                   {crews[crew].role}
                 </motion.h4>
               </div>
+            </AnimatePresence>
+            <AnimatePresence>
               <div className="crew__name">
                 <motion.h3
                   key={crews[crew].name}
@@ -41,6 +43,8 @@ export const Crew = () => {
                   {crews[crew].name}
                 </motion.h3>
               </div>
+            </AnimatePresence>
+            <AnimatePresence>
               <div className="crew__bio">
                 <motion.p
                   key={crews[crew].bio}
@@ -57,6 +61,7 @@ export const Crew = () => {
             {crews.map((item, index) => {
               return (
                 <span
+                  key={index}
                   onClick={() => {
                     setCrew(index);
                     setActive(index);
@@ -71,7 +76,7 @@ export const Crew = () => {
           <AnimatePresence>
             <div className="crew__img">
               <motion.img
-                key={crews[crew].name}
+                key={crews[crew].bio}
                 src={crews[crew].image}
                 alt={crews[crew].name}
                 initial={{ opacity: 0 }}

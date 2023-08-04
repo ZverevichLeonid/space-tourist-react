@@ -23,7 +23,6 @@
 .technology__content {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding-left: 165px;
   gap: 10px;
 }
@@ -31,6 +30,7 @@
   display: flex;
   gap: 160px;
   max-width: 750px;
+  padding-top: 100px;
 }
 .technology__numbers {
   display: flex;
