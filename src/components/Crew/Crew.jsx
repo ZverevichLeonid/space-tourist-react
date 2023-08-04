@@ -3,6 +3,7 @@ import Header from "../Header/Header";
 import crews from "./CrewsInfo.js";
 import "./crew.scss";
 import "./crew.responsive.scss";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const Crew = () => {
   const [crew, setCrew] = useState(0);
@@ -19,15 +20,38 @@ export const Crew = () => {
                 <span>02</span>Meet your crew
               </h3>
             </div>
-            <div className="crew__role">
-              <h4>{crews[crew].role}</h4>
-            </div>
-            <div className="crew__name">
-              <h3>{crews[crew].name}</h3>
-            </div>
-            <div className="crew__bio">
-              <p>{crews[crew].bio}</p>
-            </div>
+            <AnimatePresence>
+              <div className="crew__role">
+                <motion.h4
+                  key={crews[crew].role}
+                  initial={{ scale: 1.3, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ display: "none", scale: 0 }}
+                >
+                  {crews[crew].role}
+                </motion.h4>
+              </div>
+              <div className="crew__name">
+                <motion.h3
+                  key={crews[crew].name}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ display: "none" }}
+                >
+                  {crews[crew].name}
+                </motion.h3>
+              </div>
+              <div className="crew__bio">
+                <motion.p
+                  key={crews[crew].bio}
+                  initial={{ opacity: 0.5 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ display: "none", scale: 0 }}
+                >
+                  {crews[crew].bio}
+                </motion.p>
+              </div>
+            </AnimatePresence>
           </div>
           <div className="crew__inputs">
             {crews.map((item, index) => {
@@ -44,9 +68,18 @@ export const Crew = () => {
           </div>
         </div>
         <div className="crew__right">
-          <div className="crew__img">
-            <img src={crews[crew].image} alt={crews[crew].name} />
-          </div>
+          <AnimatePresence>
+            <div className="crew__img">
+              <motion.img
+                key={crews[crew].name}
+                src={crews[crew].image}
+                alt={crews[crew].name}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              />
+            </div>
+          </AnimatePresence>
         </div>
       </div>
     </section>

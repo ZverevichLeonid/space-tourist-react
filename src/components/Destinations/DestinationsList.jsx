@@ -88,5 +88,3 @@ export const DestinationsList = () => {
 };
 
 export default DestinationsList;
-
-// ДОБАВИТЬ АНИМАЦИЮ
